@@ -1,0 +1,107 @@
+<!-- Create a number pad, whenever the number is pressed, a new HTML element having
+the number name as text has to be created and displayed. Make use of HTML and
+JavaScript to implement it.
+Ex. Consider the key pressed as 1557. 
+ -->
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Number Pad</title>
+    <style>
+        .number-pad {
+            display: flex;
+            flex-wrap: wrap;
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+        }
+        
+        .number-pad button {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            font-size: 2em;
+        }
+        
+        .number-pad button:hover {
+            background-color: #eee;
+        }
+        
+        .number-pad button:active {
+            background-color: #ccc;
+        }
+        
+        .number-pad button:disabled {
+            background-color: #ccc;
+        }
+        
+        .number-pad button:disabled:hover {
+            background-color: #ccc;
+        }
+        
+        .number-pad button:disabled:active {
+            background-color: #ccc;
+        }
+        
+        .number-pad button:focus {
+            outline: none;
+        }
+        
+        .number-pad .number {
+            flex: 1 1 100px;
+        }
+        
+        .number-pad .operator {
+            flex: 1 1 200px;
+        }
+        
+        .number-pad .clear {
+            flex: 1 1 300px;
+        }
+        
+        #display {
+            width: 600px;
+            height: 100px;
+            font-size: 2em;
+            text-align: right;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="number-pad">
+        <button class="number" value="1">1</button>
+        <button class="number" value="2">2</button>
+        <button class="number" value="3">3</button>
+        <button class="number" value="4">4</button>
+        <button class="number" value="5">5</button>
+        <button class="number" value="6">6</button>
+        <button class="number" value="7">7</button>
+        <button class="number" value="8">8</button>
+        <button class="number" value="9">9</button>
+        <button class="number" value="0">0</button>
+        <button class="clear" value="clear">Clear</button>
+    </div>
+
+
+
+    <div id="display"></div>
+    <script>
+        var display = document.getElementById("display");
+        var buttons = document.querySelectorAll(".number-pad button");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function() {
+                var value = this.getAttribute("value");
+                if (value == "clear") {
+                    display.innerHTML = "";
+                } else {
+                    display.innerHTML += value;
+                }
+            });
+        }
+    </script>
+
+</html>

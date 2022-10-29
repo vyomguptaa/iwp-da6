@@ -1,0 +1,82 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Assignment</title>
+    <style>
+        .assignment {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="assignment">
+        <div class="question">
+            <p>Enter the date in dd/mm/yyyy format.</p>
+        </div>
+        <div class="answer">
+            <input type="text" id="date">
+        </div>
+        <div class="question2">
+            <p>Write a statement to print anything on the screen.</p>
+        </div>
+        <div class="answer2">
+            <input type="text" id="text">
+        </div>
+        <div class="question3">
+            <p>Write a if conditional statement.</p>
+        </div>
+        <div class="answer">
+            <input type="text" id="ifelse">
+        </div>
+        <hr>
+        <div class="submit">
+            <button type="button" onclick="checkDate()">Enter date</button>
+        </div>
+        <div class="submit">
+            <button type="button" onclick="checkText()">Check Statement</button>
+        </div>
+        <div class="submit">
+            <button type="button" onclick="checkIfElse()">Check if Statement</button>
+        </div>
+    </div>
+    <script>
+        function checkDate() {
+            var date = document.getElementById("date").value;
+            var pattern = /^([0-2][0-9]|3[0-1])\/(0[0-9]|1[0-2])\/[0-9]{4}$/;
+            if (pattern.test(date)) {
+                alert("Valid date");
+            } else {
+                alert("Invalid date");
+            }
+        }
+        //alert the statement that user input
+
+        function checkText() {
+            var text = document.getElementById("text").value;
+            var pattern = /^[a-zA-Z0-9]+$/;
+            if (pattern.test(text)) {
+                alert("Valid text and the statement is: " + text);
+            } else {
+                alert("Invalid text");
+            }
+        }
+
+        function checkIfElse() {
+            var ifelse = document.getElementById("ifelse").value;
+            var pattern = /^if\((.*)\)\{.*\}$/;
+            if (pattern.test(ifelse)) {
+                alert("Valid ifelse");
+            } else {
+                alert("Valid ifelse");
+            }
+        }
+    </script>
+</body>
+
+
+</html>
